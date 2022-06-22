@@ -6,7 +6,6 @@
 /* Style the body */
 body {
   font-family: Arial;
-  margin: 0px;
   color: white;
   font-family: 'Roboto', sans-serif;
 }
@@ -23,7 +22,7 @@ body {
   height: 400px;
 }
 #headermg{
-  background-image: url("./img/messi.jpg");
+  background-image: url("./img/noticias.jpg");
   background-size: cover;
   text-align: center;
   width: 100%;
@@ -43,8 +42,116 @@ body {
   background-color: gold;
   transition-duration: 1s;
 }
+.active{
+  color: white;
+  background-color: red;
+}
+@keyframes float {
+  0% {
+    transform: translatey(0px);
+  }
+  50% {
+    transform: translatey(-20px);
+  }
+  100% {
+    transform: translatey(0px);
+  }
+}
+
+@keyframes Color{
+  0%{
+    color:#A0D468;
+  }
+  
+  20%{
+    color:#4FC1E9;
+  }
+  
+  40%{
+    color:#FFCE54;
+  }
+  
+  60%{
+    color:#FC6E51;
+  }
+  
+  80%{
+    color:#ED5565;
+  }
+  
+  100%{
+    color:#AC92EC;
+  }
+}
+
+@-moz-keyframes Color{
+  0%{
+    color:#A0D468;
+  }
+  
+  20%{
+    color:#4FC1E9;
+  }
+  
+  40%{
+    color:#FFCE54;
+  }
+  
+  60%{
+    color:#FC6E51;
+  }
+  
+  80%{
+    color:#ED5565;
+  }
+  
+  100%{
+    color:#AC92EC;
+  }
+}
+
+@-webkit-keyframes Color{
+  0%{
+    color:#A0D468;
+  }
+  
+  20%{
+    color:#4FC1E9;
+  }
+  
+  40%{
+    color:#FFCE54;
+  }
+  
+  60%{
+    color:#FC6E51;
+  }
+  
+  80%{
+    color:#ED5565;
+  }
+  
+  100%{
+    color:#AC92EC;
+  }
+}
+.cambiocolor{
+     animation: Color 4s linear infinite;
+  -webkit-animation: Color 4s ease-in-out infinite;
+}
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .logo{
   height: 80px;
+  transform: translatey(0px);
+  animation: float 6s ease-in-out infinite;
 }
 
 /* Style the top navigation bar */
@@ -67,9 +174,7 @@ a{
   color: black;
   text-decoration: none;
 }
-.active{
-  color: red;
-}
+
 .user{
   height: 40px;
 }
@@ -83,11 +188,23 @@ h3 {font-size: 25px;}
 #meetandgreet{
   color: red;
 }
+#Posicion{
+  width: 100%;
+}
 /* Column container */
 .row {  
-  display: flex;
-  flex-wrap: wrap;
+  padding: 30px;
   align-content: center;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+
+  margin-top: 25px;
+  margin-bottom: 25px;
+
+}
+.row:hover{
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+
 }
 .collumn{
   flex: 25%;
@@ -95,6 +212,11 @@ h3 {font-size: 25px;}
   text-align: center;
   align-content: center;
   
+}
+.card-deck{
+  background-color: #a33f34;
+  padding: 10px;
+  text-align: center;
 }
 .column img {
   margin-top: 8px;
@@ -150,19 +272,30 @@ h3 {font-size: 25px;}
     display: flex;
     flex-direction: row;
 }
-.cajita{
-  flex: 50%;
-  width: 50%;
-  height: 500px;
-  flex-direction: row;
-  margin: 20px;
+#sindeco{
+  text-decoration: none;
+  color: black;
+}
+a:link{
+  text-decoration: none;
+  color: black;
+}
+a:hover{
+  text-decoration: none;
+  color: black;
+  border: none;
+}
+.card{
+  color: black;
   background-color: #a33f34;
-  padding: 20px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 }
-.cajita:hover{
+.card:hover{
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+.card-img-top{
+  height: 200px;
 }
 
 /* Fake image, just for this example */
@@ -185,6 +318,11 @@ h3 {font-size: 25px;}
   border-radius: 20px;
 }
 
+.vermas:hover{
+  background: gold;
+  transition: all 0.8s
+}
+
 /* Footer */
 .footer {
   padding: 20px;
@@ -193,26 +331,14 @@ h3 {font-size: 25px;}
   color: black;
 }
 
+
+
 /* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 700px) {
-  .row, .navbar {   
+   .navbar {   
     flex-direction: column;
   }
-  .contenedor{
-    flex-direction: column;
-  }
-  .columna{
-    flex: 100%;
-    width: 100%;
-    margin: 1% 0% 1% 0%;
 
-  }
-  .cajita{
-    flex: 100%;
-    width: 100%;
-    margin: 1% 0% 1% 0%;
-  }
-}
 </style>
 
  
